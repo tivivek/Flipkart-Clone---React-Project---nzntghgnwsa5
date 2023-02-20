@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Carousel from 'react-multi-carousel'
 import axios from 'axios'
 import { Box, Button, Divider, styled, Typography } from '@mui/material';
-
 import { Link } from 'react-router-dom';
-
 //for react countdown
 import Countdown from 'react-countdown';
+
+import  {productData}  from '../../data/allProductData';
+
+import { apiProductData } from '../../App';
+
 
 // Carousel breakpoints
 const responsive = {
@@ -64,20 +67,23 @@ const Text = styled(Typography)`
     margin-top: 5px
 `
 
-const apiUrl = `https://content.newtonschool.co/v1/pr/63b6c911af4f30335b4b3b89/products`;
+// //=============================================================== function starts===================================================
 
-//================ function starts==================
 const Slide = (props) => {
 
-    const [productData, setProductData] = useState([]);
-    useEffect(() => {
-        const fetchData = async () => {
+    //calling the apidata from App.js using useContext
+    // const productData = useContext(apiProductData);
 
-            const result = await axios.get(apiUrl);
-            setProductData(result.data);
-        }
-        fetchData();
-    }, []);
+    // const [productData, setProductData] = useState([]);
+
+    // useEffect(() => {
+    //     const fetchData = async () => {
+
+    //         const result = await axios.get(`https://content.newtonschool.co/v1/pr/63b6c911af4f30335b4b3b89/products`);
+    //         setProductData(result.data);
+    //     }
+    //     fetchData();
+    // }, []);
 
 
 

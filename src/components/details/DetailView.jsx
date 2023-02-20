@@ -1,7 +1,10 @@
-import { Box, Grid, styled } from '@mui/material'
-import React, { useState, useEffect } from 'react'
-import ActionItem from './ActionItem'
+import React, { useState, useEffect, useContext } from 'react';
+import { Box, Grid, styled } from '@mui/material';
+import ActionItem from './ActionItem';
+import  {productData}  from '../../data/allProductData';
+
 // import axios from 'axios';
+
 import ProductDetail from './ProductDetail';
 
 import { useParams } from 'react-router-dom';
@@ -31,9 +34,10 @@ const RightContainer = styled(Grid)`
 const DetailView = () => {
     
     const fetchId = useParams();
-    // console.log(fetchId)
+    
 
-    const [itemData, setItemData] = useState([]);
+    
+    // ============================================================================ using axios ===================================================================
     // useEffect(() => {
     //     const fetchData = async () => {
 
@@ -42,14 +46,67 @@ const DetailView = () => {
     //     }
     //     fetchData();
     // }, []);
+
+    // ============================================================================ using fetch promise ==================================================================
+    // useEffect(() => {
+    //     fetch(`https://content.newtonschool.co/v1/pr/63b6c911af4f30335b4b3b89/products/${fetchId.id}`)
+    //         .then(response => response.json())
+    //         .then(json => setItemData(json))
+    // }, []);
+
+    const [itemData, setItemData] = useState([]);
+    // // ============================================================================ using async await ===================================================================
+    const fetchApiData = async (url) => {
+        try {
+            const res = await fetch(url);
+            const data = await res.json();
+            setItemData(data);
+        } catch (e) {
+            console.log(e.message)
+        }
+    };
+    
+    // function getData(prid) {   
+    //     // {
+    //     //     for (let i = 0; i < productData.length; i++) {
+    //     //         if(productData.id === prid)
+    //     //             productElement = 
+    //     //     }
+    //     //     console.log(productElement);
+    //     // }
+    //     console.log(prid)
+    //     // const productElement = productData.filter((item) => item.id === prid);
+    //     // console.log(productElement);
+    //     // const productElement = productData.filter((elem, index) => index === prid)[0];
+    //     // console.log(productElement);
+    //     // setItemData(productElement);
+    //     // console.log(itemData);
+       
+    // }
+
     useEffect(() => {
-        fetch(`https://content.newtonschool.co/v1/pr/63b6c911af4f30335b4b3b89/products/${fetchId.id}`)
-            .then(response => response.json())
-            .then(json => setItemData(json))
+        fetchApiData(`https://content.newtonschool.co/v1/pr/63b6c911af4f30335b4b3b89/products/${fetchId.id}`);
     }, []);
 
+    // useEffect(() => {
+    //     // fetchApiData(`http://localhost:3001/products/${fetchId.id}`);
+    //     getData(fetchId);
+    // }, []);
+
+
+
     // const product = productData.find((data) => data.id === match.params.id);
-    console.log(itemData);
+    // console.log(itemData);
+        
+    // useEffect(() => {
+    //     // console.log(fetchId.id);
+    //     // getData(fetchId.id);
+    //     const productElement = productData.filter((elem, index) => index === prid)[0];
+    //     console.log(productElement);
+
+    // }, []);
+    
+
     return (
         <Component>
             <Grid container>
