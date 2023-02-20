@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import { Box, Button, styled } from '@mui/material'
 
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -18,32 +19,38 @@ const Image = styled('img')({
 });
 
 const StyledButton = styled(Button)(({ theme }) => ({
-  
+
   width: '46%',
   borderRadius: 2,
   height: 50,
   color: '#FFF',
   [theme.breakpoints.down('lg')]: {
-    width:'46%',
+    width: '46%',
   },
   [theme.breakpoints.down('md')]: {
-    width:'48%',
+    width: '48%',
   },
   [theme.breakpoints.down('sm')]: {
-    width:'48%',
+    width: '48%',
   }
 }));
 
 
-
+//============================================function starts===================================
 const ActionItem = (props) => {
+
+  const navigate = useNavigate();
+
+  const goToCart = () => {
+    navigate('/cart');
+  };
   return (
     <LeftContainer>
-      <Box style={{padding: '15px 20px', border: '1px solid #f0f0f0'}}>
+      <Box style={{ padding: '15px 20px', border: '1px solid #f0f0f0' }}>
         <Image src={props.itemData.image} alt="productImage" />
       </Box>
       <StyledButton style={{ marginRight: 10, background: '#ff9f00' }} variant='contained'><ShoppingCartIcon />Add to Cart</StyledButton>
-      <StyledButton style={{ background: '#fb641b' }} variant='contained'><FlashOnIcon />Buy Now</StyledButton>
+      <StyledButton onClick={goToCart} style={{ background: '#fb641b' }} variant='contained'><FlashOnIcon />Buy Now</StyledButton>
     </LeftContainer>
   )
 }

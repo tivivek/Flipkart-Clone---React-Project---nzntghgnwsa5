@@ -46,18 +46,18 @@ const Cart = () => {
               <Component container>
                   <LeftComponent item lg={9} md={9} sm={12} xs={12}>
                       <Header>
-                          <Typography style={{ fontWeight: 600, fontSize: 18 }}>My Cart</Typography>
+                          <Typography style={{ fontWeight: 600, fontSize: 18 }}>My Cart 0</Typography>
                       </Header>
                       {/* {cartItems.map(item => (
                           <CartItem item={item} removeItemFromCart={removeItemFromCart} />
                       ))
                       } */}
                       <BottomWrapper>
-                          <StyledButton onClick={() => buyNow()} variant="contained">Place Order</StyledButton>
+                          <StyledButton  variant="contained">Place Order</StyledButton>
                       </BottomWrapper>
                   </LeftComponent>
                   <Grid item lg={3} md={3} sm={12} xs={12}>
-                      <TotalView cartItems={cartItems} />
+                      {/* <TotalView cartItems={cartItems} /> */}
                   </Grid>
               </Component>
             //   :<div>Empty</div>

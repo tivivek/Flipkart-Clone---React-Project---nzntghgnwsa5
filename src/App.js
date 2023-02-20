@@ -2,6 +2,7 @@ import Header from './components/header/Header';
 
 import { Box } from '@mui/system';
 import Home from './components/home/Home';
+import Cart from './components/cart/Cart'
 
 
 import React from "react";
@@ -21,6 +22,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/products/:id' element={<DetailView />} />
+            <Route path='/cart' element={<Cart />} />
           </Routes>
         </Box>
       </Router>
