@@ -11,13 +11,18 @@ import { bannerData } from '../../constants/data';
 
 
 const responsive = {
+    superLargeDesktop: {
+        // the naming can be any, depends on you.
+        breakpoint: { max: 4000, min: 3000 },
+        items: 1
+    },
     desktop: {
         breakpoint: { max: 3000, min: 1024 },
-        items: 3
+        items: 1
     },
     tablet: {
         breakpoint: { max: 1024, min: 464 },
-        items: 2
+        items: 1
     },
     mobile: {
         breakpoint: { max: 464, min: 0 },
@@ -25,35 +30,40 @@ const responsive = {
     }
 };
 
-const Image = styled('img')({
+const Image = styled('img')(({ theme }) => ({
     width: '100%',
-    height: 280
-})
+    height: 280,
+    [theme.breakpoints.down('md')]: {
+        objectFit: 'cover',
+        height:100
+    }
+}));
+
 
 //function starts
 const Banner = () => {
-  return (
-      <Carousel swipeable={false}
-          draggable={false}
-          responsive={responsive}
-          infinite={true}
-          autoPlay={true}
-          autoPlaySpeed={4000}
-          keyBoardControl={true}
-          showDots={false}
-          slidesToSlide={1}
-          containerClass="carousel-container"
-          dotListClass="custom-dot-list-style"
-          itemClass="carousel-item-padding-40-px"
-      >
-          {
-              bannerData.map(data => (
-                  <Image src={data.url} alt="banner" id={data.id} />
-              ))
-          }
-          
-      </Carousel>
-  )
+    return (
+        <Carousel
+            responsive={responsive}
+            swipeable={false}
+            draggable={false}
+            infinite={true}
+            autoPlay={true}
+            autoPlaySpeed={3000}
+            keyBoardControl={true}
+            showDots={false}
+            slidesToSlide={1}
+            containerClass="carousel-container"
+            dotListClass="custom-dot-list-style"
+            itemClass="carousel-item-padding-40-px"
+        >
+            {
+                bannerData.map(data => (
+                    <Image src={data.url} alt="banner" />
+                ))
+            }
+        </Carousel>
+    )
 }
 
-export default Banner
+export default Banner;

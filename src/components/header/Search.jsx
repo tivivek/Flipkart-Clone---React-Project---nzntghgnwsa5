@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { InputBase, List, ListItem, Box, styled } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 // importing icon from mui
 import SearchIcon from '@mui/icons-material/Search';
@@ -23,38 +24,56 @@ const InputSearchBase = styled(InputBase)`
   padding-left: 20px;
 `;
 
+const ListWrapper = styled(List)`
+  position: absolute;
+  color: #000;
+  background: #FFFFFF;
+  margin-top: 36px;
+`;
 
 // function starts
 const Search = () => {
+
+  const [text, setText] = useState('');
+  const [productData, setProductData] = useState([]);
+
+  useEffect(() => {
+    fetch(`https://content.newtonschool.co/v1/pr/63b6c911af4f30335b4b3b89/products`)
+      .then(response => response.json())
+      .then(json => setProductData(json))
+  }, []);
+
+
+  const getText = (text) => {
+    setText(text);
+  }
+
   return (
-      <SearchContainer>
-          <InputSearchBase
-              placeholder="Search for products, brands and more"
-            //   inputProps={{ 'aria-label': 'search' }}
-            //   onChange={(e) => getText(e.target.value)}
-          />
-          <SearchIconWrapper>
-              <SearchIcon />
-          </SearchIconWrapper>
-          {/* {
-              text &&
-              <ListWrapper hidden={open}>
-                  {
-                      products.filter(product => product.title.longTitle.toLowerCase().includes(text.toLowerCase())).map(product => (
-                          <ListItem>
-                              <Link
-                                  to={`/product/${product.id}`}
-                                  style={{ textDecoration: 'none', color: 'inherit' }}
-                                  onClick={() => setOpen(true)}
-                              >
-                                  {product.title.longTitle}
-                              </Link>
-                          </ListItem>
-                      ))
-                  }
-              </ListWrapper>
-          } */}
-      </SearchContainer>
+    <SearchContainer>
+      <InputSearchBase
+        placeholder="Search for products, brands and more"
+        //   inputProps={{ 'aria-label': 'search' }}
+        onChange={(e) => getText(e.target.value)}
+        value={text}
+      />
+      <SearchIconWrapper>
+        <SearchIcon />
+      </SearchIconWrapper>
+      {
+        text && <ListWrapper>
+          {
+            productData.filter(product => product.title.toLowerCase().includes(text.toLowerCase())).map(product => (
+              <ListItem>
+                <Link to={`products/${product.id}`} onClick={()=>setText('')}>
+                  {product.title}
+                </Link>
+              </ListItem>
+            ))
+          }
+        </ListWrapper>
+      }
+
+    </SearchContainer>
   )
 }
 
