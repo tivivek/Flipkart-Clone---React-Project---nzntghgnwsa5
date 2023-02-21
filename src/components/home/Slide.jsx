@@ -1,14 +1,12 @@
-import React, { useContext, useEffect, useState } from 'react'
-import Carousel from 'react-multi-carousel'
-import axios from 'axios'
+import React from 'react';
+import Carousel from 'react-multi-carousel';
+
 import { Box, Button, Divider, styled, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 //for react countdown
 import Countdown from 'react-countdown';
 
-import  {productData}  from '../../data/allProductData';
-
-import { apiProductData } from '../../App';
+import { useSelector } from 'react-redux';
 
 
 // Carousel breakpoints
@@ -69,23 +67,9 @@ const Text = styled(Typography)`
 
 // //=============================================================== function starts===================================================
 
-const Slide = (props) => {
+const Slide = ({ title, timer }) => {
 
-    //calling the apidata from App.js using useContext
-    // const productData = useContext(apiProductData);
-
-    // const [productData, setProductData] = useState([]);
-
-    // useEffect(() => {
-    //     const fetchData = async () => {
-
-    //         const result = await axios.get(`https://content.newtonschool.co/v1/pr/63b6c911af4f30335b4b3b89/products`);
-    //         setProductData(result.data);
-    //     }
-    //     fetchData();
-    // }, []);
-
-
+    const items = useSelector((state) => state.allCart.item);
 
     const timerURL = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/timer_a73398.svg';
 
@@ -96,9 +80,9 @@ const Slide = (props) => {
     return (
         <Component>
             <Deal>
-                <DealText>{props.title}</DealText>
+                <DealText>{title}</DealText>
                 {
-                    props.timer &&
+                    timer &&
                     <Timer>
                         <img src={timerURL} alt="timer" style={{ width: 24, marginRight: 10 }} />
                         <Countdown date={Date.now() + 5.04e+7} renderer={renderer} />
@@ -112,6 +96,8 @@ const Slide = (props) => {
                 swipeable={false}
                 draggable={false}
                 infinite={true}
+                autoPlay={false}
+                autoPlaySpeed={2000}
                 keyBoardControl={true}
                 slidesToSlide={1}
                 containerClass="carousel-container"
@@ -120,13 +106,13 @@ const Slide = (props) => {
 
             >
                 {
-                    productData.map(data => (
-                        <Link to={`products/${data.id}`} style={{textDecoration:'none'}}>
+                    items.map(item => (
+                        <Link to={`products/${item.id}`} style={{ textDecoration: 'none' }} key="{slide}" >
                             <Box textAlign='center' style={{ padding: '25px 15px' }}>
-                                <Image src={data.image} alt="banner" />
-                                <Text style={{ fontWeight: 600, color: '#212121' }}>{data.title}</Text>
-                                <Text style={{ color: 'green' }}>$ {data.price} only</Text>
-                                <Text style={{}}>{data.category}</Text>
+                                <Image src={item.image} alt="banner" />
+                                <Text style={{ fontWeight: 600, color: '#212121' }}>{item.title}</Text>
+                                <Text style={{ color: 'green' }}>$ {item.price} only</Text>
+                                <Text style={{}}>{item.category}</Text>
                             </Box>
                         </Link>
                     ))

@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 
 import { Box, Typography, Badge, Button, styled } from '@mui/material';
 import { ShoppingCart } from '@mui/icons-material';
-import { style } from '@mui/system';
 import { Link } from 'react-router-dom';
 //components
 import LoginDialog from '../login/LoginDialog';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCartTotal } from '../../feature/cartSlice';
+
+import Profile from './Profile';
 
 
 const Container = styled(Link)(({ theme }) => ({
@@ -47,27 +50,46 @@ const LoginButton = styled(Button)`
   height: 32;
   box-shadow: none;
 `
-//function starts
+//=========================================function starts===========================
 const CustomButton = () => {
-
+  
+  //==================localStrorage
+  const [accountPresent, setAccountPresent] = useState(false);
+  const localUserName = localStorage.getItem('signup')
+  
   const [open, setOpen] = useState(false);
 
   const openDialog = () => {
     setOpen(true);
   }
 
+  const { cart, totalQuantity } = useSelector((state) => state.allCart);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    // if(localStorage.getItem("shoppingCart")===null || localStorage.getItem("shoppingCart")!==[])
+      dispatch(getCartTotal());
+  }, [cart]);
+
+
+
   return (
     <Wrapper>
-      <LoginButton variant='contained' onClick={openDialog}>Login</LoginButton>
-
-      <Typography style={{ marginTop: 5, width: 135 }}>Become a Seller</Typography>
-      <Typography style={{ marginTop: 5 }}>More</Typography>
+      {
+        accountPresent ? <Profile localUserName={localUserName} accountPresent={accountPresent} setAccountPresent={setAccountPresent} /> :
+        <LoginButton variant='contained' onClick={openDialog}>Login</LoginButton>
+      }
+      <Typography style={{ marginTop: 3, width: 135, cursor:'pointer' }}>Become a Seller</Typography>
+      <Typography style={{ marginTop: 3, cursor: 'pointer' }}>More</Typography>
 
       <Container to='/cart'>
-        <ShoppingCart />
+        <Badge badgeContent={totalQuantity} color="secondary">
+          {/* cart icon */}
+          <ShoppingCart />
+        </Badge>
         <Typography style={{ marginLeft: 10 }}>Cart</Typography>
       </Container>
-      <LoginDialog open={open} setOpen={ setOpen} />
+      <LoginDialog open={open} setOpen={setOpen} setAccountPresent={setAccountPresent } />
     </Wrapper>
   )
 }

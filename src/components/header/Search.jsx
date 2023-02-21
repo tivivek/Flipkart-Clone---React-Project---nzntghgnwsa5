@@ -52,7 +52,6 @@ const Search = () => {
     <SearchContainer>
       <InputSearchBase
         placeholder="Search for products, brands and more"
-        //   inputProps={{ 'aria-label': 'search' }}
         onChange={(e) => getText(e.target.value)}
         value={text}
       />

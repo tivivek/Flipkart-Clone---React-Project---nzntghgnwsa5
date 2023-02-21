@@ -35,7 +35,7 @@ const Image = styled('img')(({ theme }) => ({
     height: 280,
     [theme.breakpoints.down('md')]: {
         objectFit: 'cover',
-        height:100
+        height: 100
     }
 }));
 
@@ -49,7 +49,7 @@ const Banner = () => {
             draggable={false}
             infinite={true}
             autoPlay={true}
-            autoPlaySpeed={3000}
+            autoPlaySpeed={4000}
             keyBoardControl={true}
             showDots={false}
             slidesToSlide={1}
@@ -59,7 +59,7 @@ const Banner = () => {
         >
             {
                 bannerData.map(data => (
-                    <Image src={data.url} alt="banner" />
+                    <Image src={data.url} alt="banner" key="{banner}" />
                 ))
             }
         </Carousel>
