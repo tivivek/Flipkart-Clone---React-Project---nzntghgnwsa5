@@ -32,7 +32,7 @@ https://flipkart-clone-by-vivek.netlify.app/
 ## Sneak Peek of Site
 
 ![App Screenshot 1](https://drive.google.com/drive/u/1/folders/18UyHbu2nHhQao85ou6G7P_dlETMYGEZJ)
-![App Screenshot 2](https://drive.google.com/drive/u/1/folders/18UyHbu2nHhQao85ou6G7P_dlETMYGEZJ)
+![App Screenshot 2](https://drive.google.com/drive/folders/18UyHbu2nHhQao85ou6G7P_dlETMYGEZJ?usp=share_link)
 ![App Screenshot 3](https://drive.google.com/drive/u/1/folders/18UyHbu2nHhQao85ou6G7P_dlETMYGEZJ)
 ![App Screenshot 4](https://drive.google.com/drive/u/1/folders/18UyHbu2nHhQao85ou6G7P_dlETMYGEZJ)
 ![App Screenshot 5](https://drive.google.com/drive/u/1/folders/18UyHbu2nHhQao85ou6G7P_dlETMYGEZJ)
