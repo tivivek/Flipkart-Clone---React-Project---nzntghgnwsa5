@@ -1,70 +1,81 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Flipkart Clone Front-end APP
 
-## Available Scripts
+[Vivek's](https://github.com/tivivek/) Flipkart Clone is done with top-notch features for the entrepreneur startups like Flipkart.
+- It has a top notch user interface similar to Flipkart. 
+- It has login and logout feature.
+- It has product detal page
+- It has add to cart remove from cart feature
+- you can also increase/decrease quantity
+- It has price details window.
 
-In the project directory, you can run:
+    
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Login / Signup with Email/Phone number
+- Add / Remove item to Cart
+- Product shipping page
+- View Order details 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## 🚀 LIVE APP
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+https://flipkart-clone-by-vivek.netlify.app/
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+##  🖥️ Tech Stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Client :** React, Redux, Material UI, Localstorage, React Router Dom
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Sneak Peek of Site
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![App Screenshot 1](https://drive.google.com/drive/u/1/folders/18UyHbu2nHhQao85ou6G7P_dlETMYGEZJ)
+![App Screenshot 2](https://drive.google.com/drive/u/1/folders/18UyHbu2nHhQao85ou6G7P_dlETMYGEZJ)
+![App Screenshot 3](https://drive.google.com/drive/u/1/folders/18UyHbu2nHhQao85ou6G7P_dlETMYGEZJ)
+![App Screenshot 4](https://drive.google.com/drive/u/1/folders/18UyHbu2nHhQao85ou6G7P_dlETMYGEZJ)
+![App Screenshot 5](https://drive.google.com/drive/u/1/folders/18UyHbu2nHhQao85ou6G7P_dlETMYGEZJ)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Installation
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Clone the project
 
-## Learn More
+```bash
+  git clone https://github.com/tivivek/Flipkart-Clone---React-Project---nzntghgnwsa5
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Go to the project directory
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+  cd flipkart-clone
+```
 
-### Code Splitting
+Install dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+  npm install
+```
 
-### Analyzing the Bundle Size
+Start the server
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+  npm run start
+```
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+## Environment Variables
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+To run this project, you will need to add the following environment variables to your .env file
+ 
+ `REACT_APP_API_KEY`
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+##  👋 Contact Me
 
-### `npm run build` fails to minify
+If any query please contact on 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[![linkedin](https://www.linkedin.com/in/er-vivektiwari/)
+
