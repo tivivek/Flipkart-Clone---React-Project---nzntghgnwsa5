@@ -73,6 +73,8 @@ const COD = styled(Typography)({
 
 const Shipping = () => {
   const [userName, setUserName] = useState("");
+  const [userAddress, setUserAddress] = useState("");
+  const [userPhone, setUserPhone] = useState('');
 
   const { cart, totalPrice, totalQuantity } = useSelector(
     (state) => state.allCart
@@ -80,7 +82,7 @@ const Shipping = () => {
   const navigate = useNavigate();
 
   const orderPlaced = () => {
-    if (userName !== "") {
+    if (userName !== "" && userAddress !== "" && userPhone !== "") {
       alert("✨Congratulation!🎊, You Order ❤ has been Placed Successfully");
       setUserName("");
       localStorage.removeItem("shoppingCart");
@@ -111,7 +113,9 @@ const Shipping = () => {
               </FormInput>
               <FormInput>
                 <InputLabel htmlFor="my-add">Enter Your Address</InputLabel>
-                <Input id="my-add" aria-describedby="my-helper-text" />
+                <Input onChange={(e) => setUserAddress(e.target.value)}
+                  value={userAddress} 
+                id="my-add" aria-describedby="my-helper-text" />
               </FormInput>
               <FormInput>
                 <InputLabel htmlFor="my-near">Nearest Landmark</InputLabel>
@@ -119,7 +123,9 @@ const Shipping = () => {
               </FormInput>
               <FormInput>
                 <InputLabel htmlFor="my-number">Phone number</InputLabel>
-                <Input id="my-number" aria-describedby="my-helper-text" />
+                <Input onChange={(e) => setUserPhone(e.target.value)}
+                  value={userPhone}
+                 id="my-number" aria-describedby="my-helper-text" />
               </FormInput>
             </FormGroup>
           </Box>
