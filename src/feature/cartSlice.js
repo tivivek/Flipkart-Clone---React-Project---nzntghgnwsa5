@@ -12,7 +12,7 @@ import productData from "../data/allProductData";
 
 //Getting cartdata form localstorage
 const getLocalCartData = () => {
-    if (localStorage.getItem("shoppingCart") === null || localStorage.getItem("shoppingCart") !== []) {
+    if (localStorage.getItem("shoppingCart") === null || localStorage.getItem("shoppingCart") === []) {
         return [];
     }
     const localData = localStorage.getItem("shoppingCart");
