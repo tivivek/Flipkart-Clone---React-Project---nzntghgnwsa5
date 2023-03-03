@@ -38,9 +38,11 @@ const Search = () => {
   const [productData, setProductData] = useState([]);
 
   useEffect(() => {
-    fetch(`https://content.newtonschool.co/v1/pr/63b6c911af4f30335b4b3b89/products`)
-      .then(response => response.json())
-      .then(json => setProductData(json))
+    setProductData(items);
+    const items =  useSelector((state) => state.allCart.item);
+//     fetch(`https://content.newtonschool.co/v1/pr/63b6c911af4f30335b4b3b89/products`)
+//       .then(response => response.json())
+//       .then(json => setProductData(json))
   }, []);
 
 
